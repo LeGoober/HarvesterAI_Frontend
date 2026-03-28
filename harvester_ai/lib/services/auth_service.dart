@@ -5,13 +5,10 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  // Get current user
   User? get currentUser => _auth.currentUser;
 
-  // Stream of auth state changes
   Stream<User?> get authStateChanges => _auth.authStateChanges();
 
-  // Sign up with email and password (creates new account)
   Future<UserCredential> signUpWithEmail({
     required String email,
     required String password,
@@ -27,7 +24,6 @@ class AuthService {
     }
   }
 
-  // Login with email and password (existing account only)
   Future<UserCredential> loginWithEmail({
     required String email,
     required String password,
